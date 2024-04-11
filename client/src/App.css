@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  background-color: rgb(245, 245, 245);
+}
+
+input {
+  outline: unset;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.create-tweet {
+  /* background-color: rgb(159, 174, 218); */
+  padding: 2em;
+}
+
+.create-tweet form {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(204, 197, 197);
+  padding-bottom: 2em;
+}
+
+.create-tweet input {
+  outline: unset;
+  padding: 0.6em;
+  font-size: 1rem;
+  border: 1px solid rgb(156, 156, 161);
+  border-radius: 3px;
+  margin-bottom: 1em;
+}
+
+.create-tweet button {
+  padding: 0.6em;
+  font-size: 1rem;
+ border: none;
+ color: white;
+ background-color: rgb(109, 128, 167);
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.tweets-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.tweet-item {
+  /* width: 45%; */
+  border: 1px solid rgb(156, 156, 161);
+  padding: 2em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.create-reaction {
+  width: 50%;
+  margin-left: auto;
+}
+
+.create-reaction > form {
+  display: flex;
+  gap: 1em;
+}
+
+.create-reaction > input {
+  padding: 0.6em;
+  font-size: 1rem;
+  border: 1px solid rgb(156, 156, 161);
+  border-radius: 3px;
+}
+
+.create-reaction > button {
+  color: rgb(109, 128, 167);
+  background-color: unset;
+  border: none;
+  outline: unset;
+  padding: 0.6em;
+  font-size: 0.9rem;
+  border: 1px solid rgb(156, 156, 161);
+  border-radius: 3px;
+}
