@@ -11,17 +11,36 @@ app.use(express.json())
 
 const tweets = {}
 
-app.post('/tweets', (request, response) => {
+app.post('/tweets', async (request, response) => {
     const id = randomBytes(4).toString('hex')
     const { tweet } = request.body
 
     tweets[id] = { id, tweet }
 
-    response.status(201).send(tweets[id])
+    try {
+        await axios.post(`http://localhost:4020/events`,
+            {
+                type: 'TweetCreated',
+                data: { id, tweet }
+            })
+
+        response.status(201).send(tweets[id])
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 app.get('/tweets', (request, response) => {
     response.send(tweets)
+})
+
+app.post('/events', async (request, response) => {
+    console.log(request.body)
+    try {
+        response.send({})
+    } catch (error) {
+        console.log(error.name)
+    }
 })
 
 app.listen(PORT, () => {
