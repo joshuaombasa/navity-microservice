@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import CreateReaction from "./CreateReactions"
+import ReactionsList from "./ReactionsList"
 
 export default function TweetsList() {
 
@@ -8,7 +9,7 @@ export default function TweetsList() {
 
     useEffect(() => {
         async function fetchTweets() {
-            const res = await axios.get('http://localhost:4015/tweets')
+            const res = await axios.get('http://localhost:4017/tweets')
             setTweets(Object.values(res.data))
             console.log(Object.values(res.data))
         }
@@ -21,10 +22,10 @@ export default function TweetsList() {
     }
 
     const tweetElements = tweets.map(tweet => {
-        console.log(tweet)
-        return (<div className="tweet-item" key={tweet.id}>
+        return (<div className="tweet-item" key={tweet.tweetId}>
             <h2>{tweet.tweet}</h2>
-            <CreateReaction/>
+            <ReactionsList reactions={tweet.reactions}/>
+            <CreateReaction tweetId={tweet.tweetId}/>
         </div>)
     })
 
