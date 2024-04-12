@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 
 
@@ -6,6 +7,8 @@ export default function CreateTweet() {
 
     async function handleSubmit(event) {
         event.preventDefault()
+        const res = await axios.post(`http://localhost:4015/tweets`, { tweet: tweet })
+        setTweet('')
     }
 
     return (
