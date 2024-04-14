@@ -15,13 +15,13 @@ app.post('/events', async (request, response) => {
     events.push(event)
 
     try {
-        await axios.post(`http://localhost:4015/events`, event)
-        await axios.post(`http://localhost:4016/events`,event)
-        await axios.post(`http://localhost:4018/events`,event)
-        await axios.post(`http://localhost:4017/events`,event)
+        await axios.post(`http://tweets-srv:4015/events`, event)
+        // await axios.post(`http://localhost:4016/events`,event)
+        // await axios.post(`http://localhost:4018/events`,event)
+        // await axios.post(`http://localhost:4017/events`,event)
 
 
-        response.json({status: 'Ok'})
+        response.json({ status: 'Ok' })
     } catch (error) {
         console.log(error.name)
     }
