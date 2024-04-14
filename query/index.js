@@ -49,7 +49,7 @@ app.get('/tweets', (request, response) => {
 app.listen(PORT, async () => {
     console.log(`server runnin on port ${PORT}`)
 
-    const res = await axios.get(`http://localhost:4020/events`)
+    const res = await axios.get(`http://navity-event-bus-srv:4020/events`)
 
     const events = res.data
 
