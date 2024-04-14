@@ -17,7 +17,7 @@ app.post('/events', async (request, response) => {
             const { id, reaction, tweetId, status } = data
             const statusValue = reaction.includes('sex') ? 'rejected' : 'approved'
 
-            await axios.post(`http://localhost:4020/events`,
+            await axios.post(`http://navity-event-bus-srv:4020/events`,
             {
                 type: 'ReactionModerated',
                 data: { id, reaction, tweetId, status: statusValue }
