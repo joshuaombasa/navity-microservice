@@ -1,0 +1,33 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: navity-event-bus-depl
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: navity-event-bus
+#   template:
+#     metadata:
+#       labels:
+#         app: navity-event-bus
+#     spec:
+#       containers:
+#         - name: navity-event-bus
+#           image: joshuaombasa/navity-event-bus
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: navity-event-bus-srv
+spec:
+  selector:
+    app: navity-event-bus
+  ports:
+    - name: navity-event-bus
+      protocol: TCP
+      port: 4020
+      targetPort: 4020
