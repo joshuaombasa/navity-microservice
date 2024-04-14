@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tweets
+spec:
+  containers:
+    - name: tweets
+      image: joshuaombasa/tweets
+
+      
