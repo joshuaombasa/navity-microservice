@@ -18,7 +18,7 @@ app.post('/tweets', async (request, response) => {
     tweets[id] = { id, tweet }
 
     try {
-        await axios.post(`http://localhost:4020/events`,
+        await axios.post(`http://navity-event-bus-srv:4020/events`,
             {
                 type: 'TweetCreated',
                 data: { id, tweet }
