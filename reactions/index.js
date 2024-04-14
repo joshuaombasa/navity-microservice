@@ -23,7 +23,7 @@ app.post('/tweets/:id/reactions', async (request, response) => {
 
     reactionsByTweetId[id] = reactions
 
-    await axios.post(`http://localhost:4020/events`,
+    await axios.post(`http://navity-event-bus-srv:4020/events`,
         {
             type: 'ReactionCreated',
             data: { id: reactionId, reaction, tweetId: request.params.id, status: 'pending' }
@@ -51,7 +51,7 @@ app.post('/events', async (request, response) => {
             const itemToUpdate =reactions.find(reaction => reaction.id === id)
             itemToUpdate.status = status
 
-            await axios.post(`http://localhost:4020/events`,
+            await axios.post(`http://navity-event-bus-srv:4020/events`,
             {
                 type: 'ReactionUpdated',
                 data: { id, reaction, tweetId, status }
