@@ -30,5 +30,5 @@ spec:
   ports:
     - name: reactions
       protocol: TCP
-      port: 4018
-      targetPort: 4018
+      port: 4016
+      targetPort: 4016
