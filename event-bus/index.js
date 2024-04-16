@@ -12,13 +12,14 @@ app.use(express.json())
 app.post('/events', async (request, response) => {
     const event = request.body
     console.log(event)
+    console.log("latest is running")
     events.push(event)
 
     try {
         await axios.post(`http://tweets-srv:4015/events`, event)
-        // await axios.post(`http://localhost:4016/events`,event)
-        // await axios.post(`http://localhost:4018/events`,event)
-        // await axios.post(`http://localhost:4017/events`,event)
+        await axios.post(`http://reactions-srv:4016/events`,event)
+        await axios.post(`http://moderation-srv:4018/events`,event)
+        await axios.post(`http://query-srv:4017/events`,event)
 
 
         response.json({ status: 'Ok' })
